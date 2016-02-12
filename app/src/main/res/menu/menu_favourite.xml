@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016. David de Andrés and Juan Carlos Ruiz, DISCA - UPV, Development of apps for mobile devices.
+  -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--Action to delete all quotations from the favourite list-->
+    <item
+        android:id="@+id/action_clear"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/action_clear_all"
+        android:visible="true"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="labs.sdm.quotationshake">
+
+    <!--Permissions to access Internet and check the network state-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--Dashboard activity-->
+        <activity android:name="labs.sdm.quotationshake.activities.DashboardActivity">
+            <!--This is the entry point to the application-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--Credits activity-->
+        <!--Enable up navigation-->
+        <activity
+            android:name="labs.sdm.quotationshake.activities.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="labs.sdm.quotationshake.activities.DashboardActivity">
+            <!--Enable up navigation for backwards compatibility-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="labs.sdm.quotationshake.activities.DashboardActivity" />
+        </activity>
+
+        <!--Activity to get new quotations-->
+        <!--Enable up navigation-->
+        <activity
+            android:name="labs.sdm.quotationshake.activities.QuotationActivity"
+            android:label="@string/title_activity_quotations"
+            android:parentActivityName="labs.sdm.quotationshake.activities.DashboardActivity">
+            <!--Enable up navigation for backwards compatibility-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="labs.sdm.quotationshake.activities.DashboardActivity" />
+        </activity>
+
+        <!--Activity to configure the applications-->
+        <!--Enable up navigation-->
+        <activity
+            android:name="labs.sdm.quotationshake.activities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="labs.sdm.quotationshake.activities.DashboardActivity">
+            <!--Enable up navigation for backwards compatibility-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="labs.sdm.quotationshake.activities.DashboardActivity" />
+        </activity>
+
+        <!--Activity to display and manage the favourite quotations-->
+        <!--Enable up navigation-->
+        <activity
+            android:name="labs.sdm.quotationshake.activities.FavouriteActivity"
+            android:label="@string/title_activity_favourite"
+            android:parentActivityName="labs.sdm.quotationshake.activities.DashboardActivity">
+            <!--Enable up navigation for backwards compatibility-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="labs.sdm.quotationshake.activities.DashboardActivity" />
+        </activity>
+
+    </application>
+
+</manifest>
