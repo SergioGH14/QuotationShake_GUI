@@ -2,4 +2,14 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--Dashboard buttons padding-->
+    <dimen name="button_padding">5dp</dimen>
+
+    <!--Text size for activities-->
+    <dimen name="activity_about_text_size">26sp</dimen>
+    <dimen name="activity_quotation_text_size">30sp</dimen>
+    <dimen name="activity_author_text_size">24sp</dimen>
+    <dimen name="list_row_quotation_text_size">24sp</dimen>
+    <dimen name="list_row_author_text_size">18sp</dimen>
 </resources>

@@ -15,16 +15,20 @@
     tools:context="labs.sdm.quotationshake.activities.QuotationActivity">
 
     <!--Displays the text of quotation centred on the screen-->
-    <TextView
-        android:id="@+id/tvQuotation"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:fillViewport="true">
+        <TextView
+            android:id="@+id/tvQuotation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/activity_quotation_text_size"
+            android:textStyle="bold" />
+    </ScrollView>
 
     <!--Notifies the user that some operation (getting a quotation from the web service) is in progress-->
     <ProgressBar
@@ -45,9 +49,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="24sp"
+        android:textSize="@dimen/activity_author_text_size"
         android:textStyle="bold|italic"
         android:textColor="@color/colorAccent"
-        android:gravity="right" />
+        android:gravity="end" />
 
 </RelativeLayout>

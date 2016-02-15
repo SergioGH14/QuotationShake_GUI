@@ -18,7 +18,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp" />
+        android:textSize="@dimen/list_row_quotation_text_size" />
 
     <!--Displays quotation author on the right of the ListView row, just below the quotation text-->
     <TextView
@@ -30,8 +30,8 @@
         android:layout_below="@+id/tvQuote"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:gravity="right"
-        android:textSize="18sp"
+        android:gravity="end"
+        android:textSize="@dimen/list_row_author_text_size"
         android:textStyle="italic"
         android:textColor="@color/colorAccent" />
 </RelativeLayout>
