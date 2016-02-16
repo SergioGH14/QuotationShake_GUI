@@ -127,6 +127,14 @@ public class FavouriteActivity extends AppCompatActivity {
                         // Notify the adapter to update the ListView since the data source has changed
                         adapter.notifyDataSetChanged();
 
+                        // If there are no quotations in the favourite list then set to false the flag
+                        // that controls whether to display the action for deleting all the quotations
+                        if (hashMapList.size() == 0) {
+                            clearAllQuotations = false;
+                            // Ask the system to rebuild the options of the ActionBar
+                            supportInvalidateOptionsMenu();
+                        }
+
                     }
                 });
                 // Include a Button for handling negative confirmation: do not delete quotation
