@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2016. David de Andrés and Juan Carlos Ruiz, DISCA - UPV, Development of apps for mobile devices.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="labs.sdm.quotationshake.activities.DashboardActivity">
+
+    <!--Buttons equally distributed along the screen to access each activity of the application-->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bGetQuotations"
+            style="@style/DashboardButton"
+            android:text="@string/get_quotations" />
+
+        <Button
+            android:id="@+id/bSettings"
+            style="@style/DashboardButton"
+            android:text="@string/settings" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bFavourites"
+            style="@style/DashboardButton"
+            android:text="@string/favourites" />
+
+        <Button
+            android:id="@+id/bAbout"
+            style="@style/DashboardButton"
+            android:text="@string/about" />
+    </LinearLayout>
+</LinearLayout>
