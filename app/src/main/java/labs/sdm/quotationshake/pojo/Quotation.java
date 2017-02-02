@@ -7,15 +7,15 @@ package labs.sdm.quotationshake.pojo;
 public class Quotation {
 
     // Text of the quotation
-    String quoteText;
+    private String quoteText;
     // Author of the quotation
-    String quoteAuthor;
+    private String quoteAuthor;
     // User that uploaded the quotation to the web service
-    String senderName;
+    private String senderName;
     // URL of the user that uploaded the quotation
-    String senderLink;
+    private String senderLink;
     // URL of the quotation
-    String quoteLink;
+    private String quoteLink;
 
     public String getQuoteText() {
         return quoteText;

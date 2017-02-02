@@ -77,7 +77,7 @@ public class FavouriteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String author = null;
+                String author;
                 try {
                     // Get the quotation author from the data source and
                     // encode it using UTF-8 to be used as part of an URL
