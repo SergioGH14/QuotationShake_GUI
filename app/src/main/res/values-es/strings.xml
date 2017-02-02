@@ -6,7 +6,7 @@
 <resources>
     <string name="app_name">QuotationShake</string>
     <string name="about">Acerca de</string>
-    <string name="about_text">QUOTATIONSHAKE por\n\nDavid de Andrés\n\nddandres@disca.upv.es\n\n\u00A9 PSII 2015</string>
+    <string name="about_text">QUOTATIONSHAKE por\n\nDavid de Andrés\n\nddandres@disca.upv.es\n\n\u00A9 SDM 2017</string>
     <string name="action_add">Añadir</string>
     <string name="action_clear_all">Borrar todo</string>
     <string name="action_delete">Borrar</string>
@@ -19,6 +19,8 @@
     <string name="favourites">Citas favoritas</string>
     <string name="get_quotations">Obtener citas</string>
     <string name="greetings">¡Hola %1s! ¡Pulsa refrescar para obtener una nueva cita!</string>
+    <string name="language_english">Inglés</string>
+    <string name="language_russian">Ruso</string>
     <string name="nameless">Sin Nombre</string>
     <string name="preference_http_method">Método HTTP</string>
     <string name="preference_http_method_summary">Las peticiones web se realizarán utilizando el método HTTP seleccionado</string>

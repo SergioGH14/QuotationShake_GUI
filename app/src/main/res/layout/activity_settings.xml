@@ -33,22 +33,11 @@
         android:text="@string/preference_quotation_language_summary"
         android:textColor="@color/colorPrimary"/>
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="English"
-            android:id="@+id/rbEnglishLanguage" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Russian"
-            android:id="@+id/rbRussianLanguage" />
-    </RadioGroup>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/languages_array"
+        />
 
     <Space
         android:layout_width="match_parent"
@@ -68,13 +57,13 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GET"
+            android:text="@string/method_get"
             android:id="@+id/rbGetMethod" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="POST"
+            android:text="@string/method_post"
             android:id="@+id/rbPostMethod" />
     </RadioGroup>
 
