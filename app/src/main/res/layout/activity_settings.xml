@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/languages_array"
+        android:id="@+id/spLanguage"
         />
 
     <Space
@@ -52,7 +53,8 @@
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/rgMethod" >
 
         <RadioButton
             android:layout_width="wrap_content"
