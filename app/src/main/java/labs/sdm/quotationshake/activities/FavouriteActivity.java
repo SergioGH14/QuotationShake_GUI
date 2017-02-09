@@ -8,31 +8,31 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import labs.sdm.quotationshake.R;
+import labs.sdm.quotationshake.adapters.QuotationAdapter;
+import labs.sdm.quotationshake.pojo.Quotation;
 
 public class FavouriteActivity extends AppCompatActivity {
 
     // Data source for favourite quotations
-    List<HashMap<String, String>> hashMapList;
+    List<Quotation> quotationList;
     // Adapter object linking the data source and the ListView
-    SimpleAdapter adapter;
+    QuotationAdapter adapter;
     // ListView object to display favourite quotations
     ListView favouriteListView;
 
@@ -58,15 +58,11 @@ public class FavouriteActivity extends AppCompatActivity {
         favouriteListView = (ListView) findViewById(R.id.lvFavourite);
 
         // Add all the quotations to the data source
-        hashMapList = new ArrayList<>();
-        hashMapList.addAll(getMockQuotations());
+        quotationList = new ArrayList<>();
+        quotationList.addAll(getMockQuotations());
 
         // Create the adapter linking the data source to the ListView:
-        //  use the custom quotation_list_row layout
-        //  the value under key "quote" will be displayed on the tvQuote element
-        //  the value under key "author" will be displayed on the tvAuthor element
-        adapter = new SimpleAdapter(this, hashMapList, R.layout.quotation_list_row,
-                new String[]{"quote", "author"}, new int[]{R.id.tvQuote, R.id.tvAuthor});
+        adapter = new QuotationAdapter(this, R.layout.quotation_list_row, quotationList);
 
         // Set the data behind this ListView
         favouriteListView.setAdapter(adapter);
@@ -81,7 +77,7 @@ public class FavouriteActivity extends AppCompatActivity {
                 try {
                     // Get the quotation author from the data source and
                     // encode it using UTF-8 to be used as part of an URL
-                    author = URLEncoder.encode(hashMapList.get(position).get("author"), "UTF-8");
+                    author = URLEncoder.encode(quotationList.get(position).getQuoteAuthor(), "UTF-8");
                     // If the quotation is not anonymous, then access Wikipedia
                     if (!author.isEmpty()) {
                         // Create an implicit Intent
@@ -123,13 +119,13 @@ public class FavouriteActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Delete the quotation from the data source
-                        hashMapList.remove(selectedItem);
+                        quotationList.remove(selectedItem);
                         // Notify the adapter to update the ListView since the data source has changed
                         adapter.notifyDataSetChanged();
 
                         // If there are no quotations in the favourite list then set to false the flag
                         // that controls whether to display the action for deleting all the quotations
-                        if (hashMapList.size() == 0) {
+                        if (quotationList.size() == 0) {
                             clearAllQuotations = false;
                             // Ask the system to rebuild the options of the ActionBar
                             supportInvalidateOptionsMenu();
@@ -149,7 +145,7 @@ public class FavouriteActivity extends AppCompatActivity {
 
         // If there are no quotations in the favourite list then set to false the flag
         // that controls whether to display the action for deleting all the quotations
-        if (hashMapList.size() > 0) {
+        if (quotationList.size() > 0) {
             clearAllQuotations = true;
         }
 
@@ -189,7 +185,7 @@ public class FavouriteActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Clear the data source
-                        hashMapList.clear();
+                        quotationList.clear();
                         // Notify the adapter to update the ListView since the data source has changed
                         adapter.notifyDataSetChanged();
                         // set to false the flag that controls whether to display
@@ -212,73 +208,76 @@ public class FavouriteActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private ArrayList<HashMap<String, String>> getMockQuotations() {
-        ArrayList<HashMap<String, String>> result = new ArrayList<>();
-        HashMap<String, String> item;
+    /*
+        This method provides a list of quotations for test purposes.
+    */
+    private List<Quotation> getMockQuotations() {
+        List<Quotation> result = new ArrayList<>();
+        Quotation item;
 
-        item = new HashMap<>();
-        item.put("quote", "Think Big");
-        item.put("author", "IMAX");
+        item = new Quotation();
+        item.setQuoteText("Think Big");
+        item.setQuoteAuthor("IMAX");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Push button publishing");
-        item.put("author", "Blogger");
+        item = new Quotation();
+        item.setQuoteText("Push button publishing");
+        item.setQuoteAuthor("Blogger");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Beauty outside. Beast inside");
-        item.put("author", "Mac Pro");
+        item = new Quotation();
+        item.setQuoteText("Beauty outside. Beast inside");
+        item.setQuoteAuthor("Mac Pro");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "American by birth. Rebel by choice");
-        item.put("author", "Harley Davidson");
+        item = new Quotation();
+        item.setQuoteText("American by birth. Rebel by choice");
+        item.setQuoteAuthor("Harley Davidson");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Don't be evil");
-        item.put("author", "Google");
+        item = new Quotation();
+        item.setQuoteText("Don't be evil");
+        item.setQuoteAuthor("Google");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "If you want to impress someone, put him on your Black list");
-        item.put("author", "Johnnie Walker");
+        item = new Quotation();
+        item.setQuoteText("If you want to impress someone, put him on your Black list");
+        item.setQuoteAuthor("Johnnie Walker");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Live in your world. Play in ours");
-        item.put("author", "Playstation");
+        item = new Quotation();
+        item.setQuoteText("Live in your world. Play in ours");
+        item.setQuoteAuthor("Playstation");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Impossible is nothing");
-        item.put("author", "Adidas");
+        item = new Quotation();
+        item.setQuoteText("Impossible is nothing");
+        item.setQuoteAuthor("Adidas");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Solutions for a small planet");
-        item.put("author", "IBM");
+        item = new Quotation();
+        item.setQuoteText("Solutions for a small planet");
+        item.setQuoteAuthor("IBM");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "I'm lovin it");
-        item.put("author", "McDonalds");
+        item = new Quotation();
+        item.setQuoteText("I'm lovin it");
+        item.setQuoteAuthor("McDonalds");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Just do it");
-        item.put("author", "Nike");
+        item = new Quotation();
+        item.setQuoteText("Just do it");
+        item.setQuoteAuthor("Nike");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Melts in your mouth, not in your hands");
-        item.put("author", "M&M");
+        item = new Quotation();
+        item.setQuoteText("Melts in your mouth, not in your hands");
+        item.setQuoteAuthor("M&M");
         result.add(item);
 
-        item = new HashMap<>();
-        item.put("quote", "Because you're worth it");
-        item.put("author", "Loreal");
+        item = new Quotation();
+        item.setQuoteText("Because you're worth it");
+        item.setQuoteAuthor("Loreal");
         result.add(item);
 
         return result;
